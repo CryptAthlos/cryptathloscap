@@ -46,6 +46,13 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
     { publicPath: Array(cssFilename.split('/').length).join('../') }
   : {};
 
+var BundleTracker  = require('webpack-bundle-tracker');
+module.exports = {
+
+    plugins: [
+          new BundleTracker({path: "../", filename: 'webpack-stats.json'}),
+    ]
+}
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
 // The development configuration is different and lives in a separate file.
