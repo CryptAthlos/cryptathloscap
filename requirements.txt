@@ -1,0 +1,4 @@
+djangorestframework
+django
+requests==2.18.4
+requests-cache==0.4.13
