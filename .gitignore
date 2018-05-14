@@ -4,4 +4,4 @@
 *.idea
 build/
 *.csv
-*/settings.py
+cryptoboard_api/cryptoboard_api/settings.py
