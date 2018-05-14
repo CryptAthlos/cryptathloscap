@@ -4,4 +4,4 @@
 *.idea
 build/
 *.csv
-settings.py
+*/settings.py
