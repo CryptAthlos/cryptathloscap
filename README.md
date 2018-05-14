@@ -1,4 +1,4 @@
-<h1><img src="https://github.com/CryptAthlos/cryptathloscap/blob/master/images/cryptathlos.png" height=85 alt="" title="cryptathlos"> CryptoBoard </h1>
+<h1><img src="https://github.com/CryptAthlos/cryptathloscap/blob/master/cryptoboard_api/media/cryptathlos.jpg" height=85 alt="" title="cryptathlos"> CryptoBoard </h1>
 
 [![PyPi Version](http://img.shields.io/pypi/v/coinmarketcap.svg)](https://pypi.python.org/pypi/coinmarketcap/)
 
