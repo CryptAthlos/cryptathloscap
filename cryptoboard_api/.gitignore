@@ -22,5 +22,5 @@ yarn-error.log*
 
 *.csv
 
-config.py*
+/config
 *.pyc
