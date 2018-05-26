@@ -1,5 +1,5 @@
-{% extends from 'posts/post_base.html' %}
-
+{% extends 'posts/post_base.html' %}
+{% load humanize %}
 {% block pre_post_content %}
 <div class="col-md-4">
     {% if request.user.is_authenticated %}
@@ -15,7 +15,8 @@
             </ul>
         </div>
     </div>
-    {$ endif %}
+    {% endif %}
+
     <div class="card card-with-shadow">
         <div class="content">
             <h5 class="title">All Groups</h5>
@@ -29,12 +30,12 @@
         </div>
     </div>
 </div>
-{% endblock %
+{% endblock %}
 
 {% block post_content %}
 <div class="col-md-8">
     {% for post in post_list %}
         {% include 'posts/_post.html' %}
     {% endfor %}
-
 </div>
+{% endblock %}

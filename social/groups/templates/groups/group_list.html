@@ -4,23 +4,9 @@
 <div class="col-md-4">
     <div class="content">
         {% if user.is_authenticated %}
-
-        <h2>Welcome Back
-            <a href="{% url 'posts:for_user" username="user.username %}">
-                @{{user.username}}
-            </a>
-        </h2>
-        {% endif %}
-
-        <h2>Groups</h2>
-        <p>Welcome to the groups page</p>
+            <a href="{% url 'posts:for_user' username=user.username %}">@{{user.username}}</a>
+            {% endif %}
     </div>
-
-    {% if user.is_authenticated %}
-    <a href="{% url 'groups:create' %}" class="btn btn-md btn-fill btn-warning">
-        <span class="glyphicon glyuphicon-plus-sign">Create New Group</span>
-    </a>
-    {% endif %}
 </div>
 
 {% endblock %}
