@@ -1,6 +1,6 @@
 .mycontent{
   padding-top: 0px;
-  border: 0px blue;
+  border: 0px black;
 }
 
 html,
@@ -8,14 +8,14 @@ body {
   height: 50%;
   width: 100%;
   overflow: hidden;
-  background: blue;
+  background: black;
   margin: 0;
 }
 
 
 #note {
   position: absolute;
-  color: blue;
+  color: black;
   left: 0;
   right: 0;
   bottom: 5px;
