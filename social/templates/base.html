@@ -2,46 +2,182 @@
 {% load staticfiles %}
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
-    <title>Social Base</title>
+    <title>CryptAthlos</title>
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-
     <link rel="stylesheet" href="{% static 'social/css/master.css' %}">
 
 </head>
 <body>
-    <nav class="navbar mynav" role="navigation" id="navbar">
-        <div class="container">
-            <a class="navbar-brand mynav" href="{% url 'home' %}">Social</a>
 
+    <nav class="navbar navbar-inverse" role="navigation" id="navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    <img src="/static/media/cryptathlos.jpg" width="30" height="30"></a>
+            </div>
             <ul class="nav navbar-nav navbar-right">
                 {% if user.is_authenticated %}
-                    <li><a href="#">Post</a></li>
-                    <li><a href="#">Groups</a></li>
-                    <li><a href="#">Create Group</a></li>
-                    <li><a href="{% url 'accounts:logout' %}">Log Out</a></li>
+                <li><a href="{% url 'posts:create' %}">
+                    <span class="glyphicon glyphicon-pencil"></span> Post</a></li>
+                <li><a href="{% url 'groups:all' %}">Groups</a></li>
+                <li><a href="{% url 'groups:create' %}">
+                    <span class="glyphicon glyphicon-plus"></span> Create Group</a></li>
+                <li><a href="{% url 'accounts:logout' %}">
+                    <span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
                 {% else %}
-                    <li><a href="#">Groups</a></li>
-                    <li><a href="{% url 'accounts:login' %}">Log In</a></li>
-                    <li><a href="{% url 'accounts:signup' %}">Sign Up</a></li>
-                {% endif %}
+                <li><a href="{% url 'accounts:signup' %}">
+                    <span class="glyphicon glyphicon-user"></span> Sign Up</a>
+                </li>
+                <li><a href="{% url 'accounts:login' %}">
+                    <span class="glyphicon glyphicon-log-in"></span> Log In</a>
+                </li>
 
+                {% endif %}
             </ul>
+
         </div>
     </nav>
     <div class="container mycontent">
+
         {% block content %}
         {% endblock %}
     </div>
 
+    <!-- particles.js container -->
+    <div id="particles-js">
+        <canvas class="particles-js-canvas-el" width="2133" height="300" style="width: 100%; height: 100%;"></canvas>
+    </div>
+
+    <!-- stats - count particles -->
+    <div class="count-particles">
+        <span class="js-count-particles">--</span>
+    </div>
+
+
+    <!-- particles.js lib (JavaScript CodePen settings): https://github.com/VincentGarreau/particles.js -->
+    <script src="//static.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>/* ---- particles.js config ---- */
+
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 250,
+          "density": {
+            "enable": true,
+            "value_area": 1800
+          }
+        },
+        "color": {
+          "value": "#a8ed07"
+        },
+        "shape": {
+          "type": "triangle",
+          "stroke": {
+            "width": 0,
+            "color": "#a8ed07"
+          },
+          "polygon": {
+            "nb_sides": 5
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": true,
+          "anim": {
+            "enable": true,
+            "speed": 1,
+            "opacity_min": 0.1,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 5,
+          "random": true,
+          "anim": {
+            "enable": true,
+            "speed": 10,
+            "size_min": 0.1,
+            "sync": false
+          }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 200,
+          "random": true,
+          "color": "#ffd700",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 6,
+          "direction": "none",
+          "random": true,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": true,
+          "attract": {
+            "enable": false,
+            "rotateX": 600,
+            "rotateY": 1200
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "grab"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 140,
+            "line_linked": {
+              "opacity": 1
+            }
+          },
+          "bubble": {
+            "distance": 200,
+            "size": 20,
+            "duration": 2,
+            "opacity": 1,
+            "speed": 3
+          },
+          "repulse": {
+            "distance": 200,
+            "duration": 0.4
+          },
+          "push": {
+            "particles_nb": 4
+          },
+          "remove": {
+            "particles_nb": 2
+          }
+        }
+      },
+      "retina_detect": true
+    });
+
+
+    </script>
 </body>
+
+
 </html>
